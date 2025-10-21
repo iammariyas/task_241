@@ -7,11 +7,11 @@
 	Путь может быть абсолютным и относительным.
 	**Абсолютный путь**: <img width="670" height="490" alt="Image" src="https://github.com/user-attachments/assets/faaf92ef-a0f5-4631-a5c0-9e455da4e2a7" />
 	**Относительный путь:**
-	![[Pasted image 20251021212852.png]]
+	<img width="669" height="491" alt="Image" src="https://github.com/user-attachments/assets/2c6e5732-3f3e-46e3-82f1-9df363e079c4" />
 2. **Вывести список файлов в директории**
 	С помощью команды `ls` мы сможем увидеть список файлов в директории, например, в домашней директории:
 	
-	![[Pasted image 20251021215439.png]]
+	<img width="661" height="486" alt="Image" src="https://github.com/user-attachments/assets/39fd5540-4273-4f9d-89d2-df94606e7081" />
 	
 	Но мне хочется показать, как будет выглядеть и не в домашней директории: для наглядности создадим в папке `homework` (была создана с помощью команды `mkdir`) файлы `task1`, `task2,` `maria.txt`, `domashka.py` с помощью команды `touch`. 
 	Команда `ls` выводит список файлов и подкаталогов, которые находятся в нашей директории. 
