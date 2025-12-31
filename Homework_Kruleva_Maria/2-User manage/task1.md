@@ -13,20 +13,20 @@
 
 Проверим, что учетная запись была создана с помощью `nano /etc/passwd`
 
-![[../image/Pasted image 20251112005852.png]]
+![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020251112005852.png)
 
 На картинке ниже видно, что user1 расположен в конце файла.
 
-![[../image/Pasted image 20251112005804.png]]
+![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020251112005804.png)
 
 1.2) user2 - оболочка sh 
 В целом алгоритм создания тот же. Только при создании указываем `-s /bin/sh` - устанавливаем оболочку входа.
 
-![[../image/Pasted image 20251112011047.png]]
+![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020251112011047.png)
 
 Устанавливаю пароль такой же, user123
 Также через `nano /etc/passwd` проверяю создан ли пользователь. В конце файла записано, что `user2` создан через оболочку sh. 
-![[../image/Pasted image 20251112011303.png]]
+![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020251112011303.png)
 
 1.3) установите им пароли
     Пароли устанавливались сразу при создании, в пунктах выше указано. Использовала команду `passwd имя_пользователя`
@@ -37,11 +37,11 @@
 `usermod -aG wheel user1`. 
 Затем с помощью `groups` проверяю текущие группы. wheel - это группа, которая дает права администратора.
 
-![[../image/Pasted image 20251112011601.png]]
+![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020251112011601.png)
 
 Теперь добавим второго пользователя в группу пользователя 1. В целом, это происходит точно также, как я проделала это с user1, однако вместо `wheel` указываю `user1`. Потом с помощью `groups` смотрю, в каких группах сейчас второй пользователь, и вижу, что добавила его в группу юзера 1.
 
-![[../image/Pasted image 20251112012503.png]]
+![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020251112012503.png)
 
 #### 3. Что такое права доступа? Выведите права доступа на файлы в директории пользователя
 
@@ -49,14 +49,14 @@
 
 Чтобы вывести права доступа на файлы в домашней директории пользователя, использую `ls -la /home/user1/`
 
-![[../image/Pasted image 20251112013227.png]]
+![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020251112013227.png)
 
 Можно также войти как пользователь и посмотреть `su - user1 -c "ls -la ~/"`.
 #### 4. Как изменить права на файлы? Создайте файл который будет на который у всех пользователей будут всевозможные права
 
 Чтобы изменить права на файлы используется `chmod`. Ее синтаксис такой `chmod [кто][оператор][права] файл` кто - это может быть пользователь, может быть группа, могут все, а могут все остальные. Операторы могут быть `+` - добавить права, `-` - убрать права, `=` - установить точно. А права могут быть на чтение, запись или выполнение.
 
-![[../image/Pasted image 20251229202953.png]]
+![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020251229202953.png)
 
 #### 5. Как называется учётная запись встренного администратора в linux?
 В Linux учетная запись встроенного администратора называется **root**. Он же суперпользователь. Он обладает неограниченными правами и доступом ко всем файлам, процессам и настройкам системы. Учетная запись имеет UID 0.
@@ -107,7 +107,7 @@ control sudo restricted
 
 Нельзя удалить пользователя, если в данный момент он еще работает в системе.
 
-![[../image/Pasted image 20251229211759.png]]
+![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020251229211759.png)
 
 #### 9. Как можно изменить владельца папки? измените владельца папки из пункта 4
 Владельца папки можно поменять с помощью команды `chown` с правами суперпользователя. 
@@ -116,5 +116,5 @@ control sudo restricted
 
 `sudo chown user1:user1 /путь/к/файлу_из_пункта4`
 
-![[../image/Pasted image 20251229212338.png]]
+![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020251229212338.png)
 

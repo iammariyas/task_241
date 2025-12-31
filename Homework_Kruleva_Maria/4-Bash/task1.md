@@ -24,7 +24,7 @@
 	-u - обрабатывает неопределённые переменные как ошибку
 	-o pipefail - ошибка пайплайна останавливает скрипт
 	Скрипт выглядит следующим образом:
-	![[../image/Pasted image 20251230010955.png]]
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020251230010955.png)
 	Создаем тестовую папку и файлы 
 	```
 	mkdir -p /tmp/test_dir 
@@ -45,4 +45,4 @@
 	ls -la /tmp/test_dir/ 2>/dev/null || echo "Папка пуста или удалена"
 	```
 	Результаты запуска скрипта:
-	![[../image/Pasted image 20251230011025.png]]
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020251230011025.png)

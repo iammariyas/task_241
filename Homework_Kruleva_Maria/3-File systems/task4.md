@@ -12,7 +12,7 @@
 	
 	я нашла картинку с краткой выжимкой уровней в таблице:
 	
-	![[../image/Pasted image 20251229232834.png]]
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020251229232834.png)
 	Однако в табличке нет уровней JBOD, RAID DP и RAID 7. Про них я расскажу подробнее:
 	**JBOD** - это не RAID, но тоже массив, его аббревиатура расшифровывается как "просто связка дисков". Она не дает никакого роста производительности и никакой отказоустойчивости, является просто дисками, которых склеили в один диск. скорость операций не выйдет за рамки самого быстрого и самого медленного накопителя, участвующих в этой связке
 	**RAID DP** - это усовершенствованный уровень RAID. он получился после того, как в RAID4 добавили еще один накопитель для хранения контрольных сумм. Однако в этом RAID DP используется ФС WALF из-за чего он может работать только в устройствах компании *NetApp*. Но связка RAID DP с этой системой дает повышение производительности выше, чем у RAID 5 и RAID 6.
@@ -21,9 +21,9 @@
 	Для устойчивой работы такого массива **обязательно требуется источник бесперебойного питания (ИБП)**, поскольку при внезапном отключении электричества данные, находящиеся в кэше, могут быть потеряны или повреждены.
 2. **Добавьте в виртуальную машину 2 диска отформатируйте их в ext4**
 	Создаю точно также в VirtualBox.
-	![[../image/Pasted image 20251229234403.png]]
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020251229234403.png)
 	затем входим в систему и выполняем `lsblk`:
-	![[../image/Pasted image 20251229235220.png]]
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020251229235220.png)
 	Форматируем диски в ext4:
 	```
 	mkfs -t ext4 /dev/sdc
@@ -34,21 +34,21 @@
 	```
 	mdadm --create /dev/md0 --level=0 --raid-devices=2 /dev/sdc /dev/sdd
 	```
-	![[../image/Pasted image 20251230000836.png]]
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020251230000836.png)
 4. **Проверье всё ли работает**
 	Проверим состояние массива через `cat /proc/mdstat`
-	![[../image/Pasted image 20251230001041.png]]
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020251230001041.png)
 	вывод покахывает, что `/dev/md0` активен как RAID 0
 	чтобы получить детальную информацию о массиве, есть команда 
 	```
 	mdadm --detail /dev/md0
 	```
 	она показывает уровень RAID в нашем случае 0, размер массива, состояние в моем случае clean и диски в массиве.
-	![[../image/Pasted image 20251230001259.png]]
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020251230001259.png)
 	
 5. **Удалите raid0 и создайте raid1**
 	Чтобы удалить RAID 0 использую команду, нужно остановить рейд массив с помощью команды `mdadm --stop /dev/md0`, а потом очистить суперблоки на дисках `mdadm --zero-superblock /dev/sdc /dev/sdd`/ проверяем, что диски очищены `mdadm --examine /dev/sdc /dev/sdd`. Должно быть пусто или "No md superblock detected".
-	![[../image/Pasted image 20251230001739.png]]
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020251230001739.png)
 	Далее создаем RAID 1
 	```
 	mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdc /dev/sdd

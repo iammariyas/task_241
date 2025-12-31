@@ -5,7 +5,7 @@
 	 
 	Посмотрим на картинке:
 	
-	![[../image/Pasted image 20251229193509.png]]
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020251229193509.png)
 	
 	Чтобы вывести список файлов и каталогов в корневой ФС используется команда:
 	```
@@ -16,14 +16,14 @@
 	ls -l /
 	```
 	
-	![[../image/Pasted image 20251229195049.png]]
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020251229195049.png)
 	
 	а чтобы увидеть и скрытые файлы:
 	```
 	ls -la /
 	```
 
-	![[../image/../Pasted image 20251229195127.png]]
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/../Pasted%20image%2020251229195127.png)
 
 
 2) **Где хранятся папки пользователей в системе?**
