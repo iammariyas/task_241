@@ -2,7 +2,7 @@
 
 1. **Создайте скрипт который создаёт папку заполняет её файлами ( имена 1-4 ) и записывает в них информацию о текущей дате, версии ядра, имени компьютера и списе всех файлов в домашнем каталоге пользователя от которого выполняется скрипт( не забудьте сдлеать проверку на существование файлов и папок)**
 	
-	![[Pasted image 20260104163136.png]]
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104163136.png)
 	
 	Теперь подробное описание скрипта:
 	создаю переменную DIR с путем ~/myinfo. В моем случае, поскольку я работаю под root, то путь будет /root/myinfo
@@ -28,24 +28,24 @@
 	в третьем имя моего компьютера
 	а в четвертом будет список всех файлов домашней директории. теперь покажу все выводы:
 	
-	![[Pasted image 20260104164115.png]]
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104164115.png)
 	
 2. **Создайте юнит который будет вызывать этот скрипт при запуске. Проверьте**
 	Создадим следующий файл: 
 	`nano /etc/systemd/system/myinfo.service` и пропишем в нем скрипт:
 	
-	![[Pasted image 20260104181525.png]]
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104181525.png)
 	
 	Запустим:
-	![[Pasted image 20260104181436.png]]
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104181436.png)
 3. **Создайте таймер который будет вызывать выполнение одноимённого systemd юнита каждые 5 минут.**
 	Создадим следующий файл: 
 	`nano /etc/systemd/system/myinfo.timer` и пропишем следующий скрипт:
 	
-	![[Pasted image 20260104182500.png]]
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104182500.png)
 	Активируем и проверим статус таймера и список всех таймеров:
-	![[Pasted image 20260104182004.png]]
-	![[Pasted image 20260104182104.png]]
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104182004.png)
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104182104.png)
 	
 4. **От какого пользователя вызыаются юниты поумолчанию?**
 	по умолчанию systemd юниты вызываются от пользователя root.
@@ -66,10 +66,10 @@
 	```
 	Затем нужно изменить unit-файл для нового пользователя (заменить имя пользователя. Можно было сделать через $(whoami), но у меня почему-то не заработало)
 	
-	![[Pasted image 20260104184123.png]]э
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104184123.png)э
 	Активируем и смотрим статус:
 	
-	![[Pasted image 20260104184302.png]]
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104184302.png)
 	
 	
 1. **Дополните юнит информацией о пользователе от которого должен выполняться скрипт.**
@@ -78,10 +78,10 @@
 	- **`Group=scriptuser`** - группа выполнения
 	- **`WorkingDirectory=/home/scriptuser`** - рабочая директория скрипта
 	
-	![[Pasted image 20260104184556.png]]
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104184556.png)
 	Применяем изменения:
-	![[Pasted image 20260104184758.png]]
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104184758.png)
 1. **Дополните ваш скрипт так, что бы он независимо от местоположения всегда выполнялся в домашней папке того кто его вызывает.**
-	![[Pasted image 20260104185117.png]]
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104185117.png)
 	`cd "$HOME"` будет всегда переходить в домашнюю директорию текущего пользователя
 	из изменений: сделала компактную проверку существования файла. С условием if проверка мне кажется громоздкой. Так красивее на мой взгляд.
