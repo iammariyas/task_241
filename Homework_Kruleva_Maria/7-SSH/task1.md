@@ -13,35 +13,35 @@
 	юху подключилась
 	`ssh -p 223 student@ternar.io`
 
-	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104194410.png)
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020260104195729.png)
 
 6. **Отредактируйте файл настроек на сервере так, чтобы была возможность подключиться к серверу используя пользователя root**
 	Открываем файл настроек на сервере с помощью `nano /etc/openssh/sshd_config` и изменяем строку `#PermitRootLogin prohibit-password` на `PermitRootLogin yes`
-	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104195729.png)
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020260104195729.png)
 	
-	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104195421.png)
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020260104195421.png)
 7. **Измените количество ошибок ввода пароля перед сборосом соединения, покажите эти измененения**
 	Там же, где мы выполняли пункт 6, меняем строку `MaxAuthTries`
 	
-	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104200145.png)
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020260104200145.png)
 	
 8. **Создайте пользователя ssh-user и попробуйте им подключиться к серверу**
 	создаю пользователя `ssh-user` с домашней папкой и задаю пароль
-	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104200328.png)
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020260104200328.png)
 	проверим, что точно создали, а то вдруг нет
 	
-	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104200512.png)
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020260104200512.png)
 	теперь подключимся к серверу:
 	`ssh -p 223 ssh-user@ternar.io`
 	и проверим, что вход успешный 
 	`whoami` - выводится `ssh-user`
-	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104200621.png)
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020260104200621.png)
 	все супер, мы подключились. ура!!!
 9. **Ограничьте ему возможность подключения к серверу**
 	
-	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104200916.png)
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020260104200916.png)
 	
-	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104201041.png)
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020260104201041.png)
 10. **Как вы это сделали?**
 	Отредактировала `/etc/openssh/sshd_config`. В конец файла добавила 
 	`DenyUsers ssh-user`

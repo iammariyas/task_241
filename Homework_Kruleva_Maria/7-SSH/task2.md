@@ -9,11 +9,11 @@
 3. **Отредактируйте файл options так, чтобы можно было подключаться не вводя имя пользвателя и порт**
 	Открываю файл `~/.ssh/config`, там пишу следующее:
 	
-	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104203107.png)
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020260104203107.png)
 	
 	Устанавливаю права доступа `chmod 600 ~/.ssh/config` и могу теперь подключаться просто `ssh ternar`
 	
-	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104203223.png)
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020260104203223.png)
 4. **Назовите подключение удобным для вас способом**
 	я назвала ternar. это видно, когда в файле писала свое подключение
 5. **Проверьте работоспособность**

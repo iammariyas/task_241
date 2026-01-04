@@ -15,7 +15,7 @@
 3. **Создайте пару публичный/приватный ключ ed_25519, где они хранятся?**
 	Как раз то, что я описала в пункте выше создает пару публичный/приватный ключ ed_25519
 	
-	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104205057.png)
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020260104205057.png)
 	
 4. **Скопируйте публичный ключ на ваш сервер, в каком файле он будет храниться?**
 	копирую ключ с помощью команды:
@@ -24,7 +24,7 @@
 	ssh-copy-id -i ~/.ssh/id_ed25519.pub -p 223 student@ternar.io
 	```
 	
-	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104210500.png)
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020260104210500.png)
 	все успешно перекопировалось, теперь смотрим сам сервер. 
 	
 	ключ будет храниться в `/home/student/.ssh/authorized_keys` - каждый пользователь имеет свой файл authorized_keys.
@@ -35,5 +35,5 @@
 6. **Запретите подключение с паролем для всех пользователей, оставьте только с помощью ключа.**
 	отредактирую `/etc/openssh/sshd_config` на сервере:
 	запретим вход по паролю для всех пользователей, разрешаем вход по ssh ключам и отключаем интерактивную аутентификацию.
-	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%20260104211430.png)
+	![alt text](https://github.com/iammariyas/task_241/blob/labs/Homework_Kruleva_Maria/image/Pasted%20image%2020260104211430.png)
 	
